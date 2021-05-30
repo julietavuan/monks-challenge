@@ -4,6 +4,8 @@
     <title>Socket-Test</title>
     <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
             namespace = '/websocket';
@@ -24,13 +26,18 @@
     </script>
 </head>
 <body style="background-color:white;">
-    <h1 style="background-color:white;">Socket</h1>
-    <form id="save" method="POST" action='#'>
-        <input type="text" name="emit_key" id="emit_key">Key</input>
-        <input type="text" name="emit_value" id="emit_value">Value</input>
-        <input type="submit" value="Send Message">
+    <form class="form-style-9" id="save" method="POST" action='#'>
+        <ul>
+            <li>
+                <input id="emit_key" type="text" name="emit_key" class="field-style field-split align-left" placeholder="Key" />
+            </li>
+            <li>
+                <textarea id="emit_value" name="emit_value" class="field-style" placeholder="Value"></textarea>
+            </li>
+            <li>
+                <input type="submit" value="Send Monk" />
+            </li>
+        </ul>
     </form>
-    <h2 style="background-color:white;">Logs</h2>
-    <div id="log" ></div>
 </body>
 </html>

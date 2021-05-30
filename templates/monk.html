@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Socket-Test</title>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body style="background-color:white;">
+    <div class="container">
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="key" class="filter__link" href="#">Key</a></div>
+                <div class="header__item"><a id="value" class="filter__link filter__link--number" href="#">Value</a></div>
+            </div>
+            <div class="table-content">
+                <div class="table-row">
+                    <div class="table-data">{{ data["key"] }}</div>
+                    <div class="table-data">{{ data["value"] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
