@@ -47,7 +47,13 @@ def save_message(message):
     """
     save message received
     """
-    sqlite.save(message)
-    return render_template('success.html', async_mode=socket_.async_mode)
-
+    r = sqlite.save(message)
+    if r is not None:
+        session['receive_count'] = session.get('receive_count', 0) + 1
+        emit('my_response',
+             {'data': 'success!', 'count': session['receive_count']})
+    else:
+        session['receive_count'] = session.get('receive_count', 0) + 1
+        emit('my_response',
+             {'data': 'failed to save the key value!', 'count': session['receive_count']})
 
